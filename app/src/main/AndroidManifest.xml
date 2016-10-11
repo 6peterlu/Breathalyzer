@@ -15,6 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Info" />
+        <activity android:name=".Calculator" />
+        <activity android:name=".Breathalyzer" />
+        <activity android:name=".Result"></activity>
     </application>
 
 </manifest>
