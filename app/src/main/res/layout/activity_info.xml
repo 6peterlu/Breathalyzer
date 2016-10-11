@@ -10,4 +10,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.peter.breathalyzer.Info">
 
+    <Button
+        android:text="Calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="176dp"
+        android:id="@+id/button2"
+        android:onClick="calculator"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Breathalyzer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:id="@+id/button3"
+        android:onClick="breathalyzer" />
+
+    <TextView
+        android:text="Insert BAC chart here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:text="Insert settings menu here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:id="@+id/textView3" />
+
 </RelativeLayout>

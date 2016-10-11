@@ -10,4 +10,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.peter.breathalyzer.Result">
 
+    <TextView
+        android:text="Your blood alcohol content is too high!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="113dp"
+        android:id="@+id/textView6" />
+
+    <TextView
+        android:text="Display BAC chart again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:id="@+id/textView7" />
 </RelativeLayout>
