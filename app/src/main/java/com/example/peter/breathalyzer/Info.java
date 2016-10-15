@@ -3,6 +3,7 @@ package com.example.peter.breathalyzer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class Info extends AppCompatActivity {
 
@@ -12,11 +13,11 @@ public class Info extends AppCompatActivity {
         setContentView(R.layout.activity_info);
     }
 
-    public void calculator(){
+    public void calculator(View view){
         Intent intent = new Intent(this, Calculator.class);
         startActivity(intent);
     }
-    public void breathalyzer(){
+    public void breathalyzer(View view){
         Intent intent = new Intent(this, Breathalyzer.class);
         startActivity(intent);
     }

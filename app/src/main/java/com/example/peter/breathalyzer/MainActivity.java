@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("watsup", "onCreate: How are you");
     }
-    public void next(){
+    public void next(View view){
         Intent intent = new Intent(this, Info.class);
         startActivity(intent);
     }
