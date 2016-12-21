@@ -4,8 +4,7 @@
     android:id="@+id/activity_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context="com.example.peter.breathalyzer.Info">
+    android:layout_gravity="center">
 
     <TextView
         android:text="Insert BAC chart here"
