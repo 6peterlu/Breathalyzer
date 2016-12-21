@@ -16,7 +16,7 @@ import android.widget.Button;
 import static android.content.ContentValues.TAG;
 
 public class BreathalyzerFragment extends Fragment {
-    private Button breathalyzerButton;
+    private Button measureButton;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -24,13 +24,15 @@ public class BreathalyzerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_welcome, container, false);
-        breathalyzerButton = (Button) v.findViewById(R.id.breath_button);
-        breathalyzerButton.setOnClickListener(new View.OnClickListener(){
+        View v = inflater.inflate(R.layout.fragment_breathalyzer, container, false);
+        measureButton = (Button) v.findViewById(R.id.measure_button);
+        measureButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(getActivity(), Breathalyzer.class);
-                startActivity(intent);
+                ResultFragment resultFrag = new ResultFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, resultFrag)
+                        .commit();
             }
         });
         return v;

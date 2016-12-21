@@ -25,13 +25,15 @@ public class InfoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_welcome, container, false);
-        calculatorButton = (Button) v.findViewById(R.id.next_button);
+        View v = inflater.inflate(R.layout.fragment_info, container, false);
+        calculatorButton = (Button) v.findViewById(R.id.calc_button);
         calculatorButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(getActivity(), Calculator.class);
-                startActivity(intent);
+                CalculatorFragment calcFrag = new CalculatorFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, calcFrag)
+                        .commit();
             }
         });
 
@@ -39,9 +41,13 @@ public class InfoFragment extends Fragment {
         breathButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(getActivity(), Breathalyzer.class);
-                startActivity(intent);
+                BreathalyzerFragment breathFrag = new BreathalyzerFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, breathFrag)
+                        .commit();
             }
+
+
         });
 
         return v;
