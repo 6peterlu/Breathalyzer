@@ -18,6 +18,7 @@ import static android.content.ContentValues.TAG;
 public class InfoFragment extends Fragment {
     private Button calculatorButton;
     private Button breathButton;
+    private Button settingsButton;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -40,14 +41,23 @@ public class InfoFragment extends Fragment {
         breathButton = (Button) v.findViewById(R.id.breath_button);
         breathButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 BreathalyzerFragment breathFrag = new BreathalyzerFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, breathFrag)
                         .commit();
             }
+        });
 
-
+        settingsButton = (Button) v.findViewById(R.id.settings_button);
+        settingsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                SettingsFragment settingsFrag = new SettingsFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, settingsFrag)
+                        .commit();
+            }
         });
 
         return v;

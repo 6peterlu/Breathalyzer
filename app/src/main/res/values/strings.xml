@@ -3,4 +3,10 @@
     <string name="next_button_text">Next</string>
     <string name="welcome_text">Welcome</string>
     <string name="calculator">Calculator</string>
+    <string name="bac_settings_button">Set the BAC</string>
+    <string name="weight_number_picker_instructions">Select your friend\'s weight (in pounds)</string>
+    <string name="standard_drinks_number_picker_instructions">Select the number of standard drinks your friend has consumed</string>
+    <string name="male_radio_button_text">Male</string>
+    <string name="female_radio_button_text">Female</string>
+    <string name="calculate_bac_button_text">Calculate your friend\'s BAC</string>
 </resources>
