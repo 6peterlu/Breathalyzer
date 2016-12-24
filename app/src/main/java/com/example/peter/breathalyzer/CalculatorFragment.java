@@ -2,6 +2,7 @@ package com.example.peter.breathalyzer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,37 +16,29 @@ import android.graphics.Color;
 
 public class CalculatorFragment extends Fragment {
     private Button calcButton;
+    private EditText weight;
+    private EditText height;
+    private EditText shot;
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_calculator, container, false);
+        weight = (EditText) v.findViewById(R.id.weight_text);
+        height = (EditText) v.findViewById(R.id.height_text);
+        shot = (EditText) v.findViewById(R.id.shot_text);
         calcButton = (Button) v.findViewById(R.id.calc_button);
         calcButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                //if (complete_inputs(view)) {
+                if (complete_inputs(weight, height, shot)) {
                     ResultFragment resultFrag = new ResultFragment();
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, resultFrag)
                             .commit();
-                //}
+                }
             }
         });
         return v;
-    }
-
-    //error checking - rejects input if at least one field is empty. Sets empty fields to red.
-    public boolean complete_inputs(View view){
-        EditText weight = (EditText) view.findViewById(R.id.weight_text);
-        EditText height = (EditText) view.findViewById(R.id.height_text);
-        EditText shot = (EditText) view.findViewById(R.id.shot_text);
-        if(input_incomplete(weight) || input_incomplete(height) || input_incomplete(shot)) {
-            weight.setHintTextColor(Color.RED);
-            height.setHintTextColor(Color.RED);
-            shot.setHintTextColor(Color.RED);
-            return false;
-        }
-        return true;
     }
 
     // checks if one EditText is empty
@@ -55,4 +48,17 @@ public class CalculatorFragment extends Fragment {
         }
         return false;
     }
+
+    //error checking - rejects input if at least one field is empty. Sets empty fields to red.
+    public boolean complete_inputs(EditText _weight, EditText _height, EditText _shot) {
+        if(input_incomplete(_weight) || input_incomplete(_height) || input_incomplete(_shot)) {
+            _weight.setHintTextColor(Color.RED);
+            _height.setHintTextColor(Color.RED);
+            _shot.setHintTextColor(Color.RED);
+            return false;
+        }
+        return true;
+    }
+
+
 }
