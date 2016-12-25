@@ -19,6 +19,8 @@ import static android.content.ContentValues.TAG;
 public class BreathalyzerFragment extends Fragment {
     //private Button measureButton;
     SoundMeter meter;
+    private Handler handler;
+    private Runnable runnable;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -41,14 +43,15 @@ public class BreathalyzerFragment extends Fragment {
             }
         });
         */
-        final Handler h = new Handler();
+        handler = new Handler();
         final int delay = 500; //milliseconds
-        h.postDelayed(new Runnable(){
-            public void run(){
+        runnable = new Runnable() {
+            @Override
+            public void run() {
                 //do something
                 double amplitude = meter.getAmplitude();
                 Log.d("cat", "" + amplitude);
-                if(amplitude == 32767.0) {//this is the highest double that can be reached by the microphone lol
+                if (amplitude == 32767.0) {//this is the highest double that can be reached by the microphone lol
                     meter.stop();
                     ResultFragment resultFrag = new ResultFragment();
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -56,10 +59,20 @@ public class BreathalyzerFragment extends Fragment {
                             .commit();
                     meter = null;
                 } else {
-                    h.postDelayed(this, delay);
+                    handler.postDelayed(this, delay);
                 }
             }
-        }, delay);
+        };
+        handler.postDelayed(runnable, delay);
         return v;
+    }
+
+    /*We override this callback in case the drunk user clicks the back button and exits the app.
+     * In this case, we want the handler to stop running the runnable. Note: you cannot leave
+     * the Breathalyzer Fragment if the user clicks square and then comes back to the app.*/
+    @Override
+    public void onPause(){
+        super.onPause();
+        handler.removeCallbacks(runnable);
     }
 }
