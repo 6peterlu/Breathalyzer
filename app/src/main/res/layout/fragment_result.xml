@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/home_screen_button_text"
         android:id="@+id/home_screen_button"
-        android:radius="100dp"/>
+        android:radius="100dp"
+        android:background="@drawable/mybutton"/>
 
 </LinearLayout>
