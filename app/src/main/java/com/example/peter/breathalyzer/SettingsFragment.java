@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by jaimedeverall on 25/12/2016.
@@ -23,13 +26,32 @@ public class SettingsFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+        final View v = inflater.inflate(R.layout.fragment_settings, container, false);
         final SharedPreferences preferences = getActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE);
         bac_seekbar = (SeekBar) v.findViewById(R.id.bac_seekbar);
 
         //set the range of the seekbar and the initial value using preferences.
         bac_seekbar.setMax(50);
         bac_seekbar.setProgress( (int)(preferences.getFloat("selected_bac", 0.3f) * 100) );
+
+        //Change the preview of BAC on seekbar change
+        bac_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged (SeekBar seekBar, int progress, boolean fromUser){
+                TextView seekPreview = (TextView)v.findViewById(R.id.seekbar_preview);
+                seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
+            }
+            //idk if theres anything we should put here
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar){
+                //hello friends
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar){
+                //sup
+            }
+
+        });
 
         fakeBreathalyzerButton = (Button) v.findViewById(R.id.fake_breathalyzer_button);
         fakeBreathalyzerButton.setOnClickListener(new View.OnClickListener(){
