@@ -33,7 +33,6 @@ public class WelcomeFragment extends Fragment {
                         .commit();
             }
         });
-
         return v;
     }
 

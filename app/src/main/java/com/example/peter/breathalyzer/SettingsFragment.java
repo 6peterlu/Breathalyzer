@@ -8,27 +8,42 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.NumberPicker;
-import android.widget.RadioGroup;
-import android.widget.Toast;
-
-import java.io.File;
+import android.widget.SeekBar;
 
 /**
- * Created by jaimedeverall on 22/12/2016.
- * One number picker for the number of standard drinks
- * One number picker for the weight of the person
- * One checkbox for the gender of the person.
- * One button for calculating the BAC and saving it. Use text view to display this success.
+ * Created by jaimedeverall on 25/12/2016.
  */
 
-public class SettingsFragment extends AbstractCalculatorFragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = super.onCreateView(inflater, container, savedInstanceState);
-        setTextForFragmentInstructions(R.string.settings_fragment_instructions);
-        setTextForCalculateButton(R.string.fake_app_button_text);
-        setOnClickListenerForCalculateButton(new BreathalyzerFragment());
+public class SettingsFragment extends Fragment {
+    private Button fakeBreathalyzerButton;
+    private SeekBar bac_seekbar;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+        final SharedPreferences preferences = getActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        bac_seekbar = (SeekBar) v.findViewById(R.id.bac_seekbar);
+
+        //set the range of the seekbar and the initial value using preferences.
+        bac_seekbar.setMax(50);
+        bac_seekbar.setProgress( (int)(preferences.getFloat("selected_bac", 0.3f) * 100) );
+
+        fakeBreathalyzerButton = (Button) v.findViewById(R.id.fake_breathalyzer_button);
+        fakeBreathalyzerButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //set the value in shared preferences of the new BAC. and go to the Breathalyzer fragment.
+                float bac = bac_seekbar.getProgress()/100.0f;
+                preferences.edit().putFloat("selected_bac", bac).commit();
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new BreathalyzerFragment())
+                        .commit();
+            }
+        });
         return v;
     }
 }
