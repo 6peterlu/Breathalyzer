@@ -38,17 +38,6 @@ public class InfoFragment extends Fragment {
             }
         });
 
-        breathButton = (Button) v.findViewById(R.id.breath_button);
-        breathButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                BreathalyzerFragment breathFrag = new BreathalyzerFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, breathFrag)
-                        .commit();
-            }
-        });
-
         settingsButton = (Button) v.findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(new View.OnClickListener(){
             @Override
