@@ -8,6 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/results"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/disclaimer"
+        android:text="@string/disclaimer_text"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
