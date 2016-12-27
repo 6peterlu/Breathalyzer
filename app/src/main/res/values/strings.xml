@@ -16,4 +16,5 @@
     <string name="disclaimer_text">This app is created purely for educational and entertainment purposes.
     The blood alcohol calculator is based on an formula from WikiHow.
     The number displayed on the screen does not in any way constitute a medical recommendation.</string>
+    <string name="selected_bac">Selected BAC:</string>
 </resources>

@@ -11,6 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bac_seekbar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekbar_preview"
+        android:text="@string/selected_bac"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
