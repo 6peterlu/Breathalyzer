@@ -33,12 +33,14 @@ public class SettingsFragment extends Fragment {
         //set the range of the seekbar and the initial value using preferences.
         bac_seekbar.setMax(50);
         bac_seekbar.setProgress( (int)(preferences.getFloat("selected_bac", 0.3f) * 100) );
+        final TextView seekPreview = (TextView)v.findViewById(R.id.seekbar_preview);
+        seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
 
         //Change the preview of BAC on seekbar change
         bac_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged (SeekBar seekBar, int progress, boolean fromUser){
-                TextView seekPreview = (TextView)v.findViewById(R.id.seekbar_preview);
+
                 seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
             }
             //idk if theres anything we should put here

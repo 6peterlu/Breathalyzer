@@ -16,5 +16,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/bodyColor</item>
     </style>
+    <style name="button">
+        <item name="android:backgroundTint">@color/bodyColor</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
 
 </resources>

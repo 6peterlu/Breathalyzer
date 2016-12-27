@@ -28,13 +28,13 @@ public class ResultFragment extends Fragment {
         float bac = preferences.getFloat("selected_bac", 0.1f);
         String results = "Your BAC is " + bac;
         bac_results.setText(results);
-        if (bac > 0.03) {
+        if (bac < 0.03) {
+            bac_results.setTextColor(Color.GREEN);
+        } else if (bac < 0.25) {
             bac_results.setTextColor(Color.YELLOW);
-        }
-        if (bac > 0.25) {
+        } else {
             bac_results.setTextColor(Color.RED);
         }
-
 
         back_button = (Button) v.findViewById(R.id.home_screen_button);
         back_button.setOnClickListener(new View.OnClickListener(){
