@@ -6,7 +6,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_fragment_instructions"/>
+        android:text="@string/settings_fragment_instructions"
+        style="@style/body"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" />
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,11 +19,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekbar_preview"
-        android:text="@string/selected_bac"/>
+        android:text="@string/selected_bac"
+        style="@style/body"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/fake_app_button_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@color/bodyColor"
         android:id="@+id/fake_breathalyzer_button"/>
 
 </LinearLayout>

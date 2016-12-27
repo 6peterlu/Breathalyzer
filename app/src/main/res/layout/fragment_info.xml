@@ -19,6 +19,7 @@
         android:gravity="center"
         android:id="@+id/info_header"
         style="@style/header"/>
+
     <TextView
         android:text="@string/info_body"
         android:layout_width="wrap_content"
@@ -35,26 +36,32 @@
     <Button
         android:text="@string/calculator"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:id="@+id/calc_button"
-        android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:background="@drawable/mybutton"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         android:backgroundTint="@color/bodyColor"
-        />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:layout_height="80dp"
+        android:layout_marginBottom="0dp" />
 
     <Button
         android:text="@string/bac_settings_button"
         android:id="@+id/settings_button"
-        android:layout_height="100dp"
         android:layout_width="match_parent"
         android:background="@drawable/mybutton"
         android:layout_marginTop="10dp"
         android:textSize="25sp"
         android:textColor="@color/colorPrimaryDark"
-        android:backgroundTint="@color/bodyColor"/>
+        android:backgroundTint="@color/bodyColor"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="80dp" />
 
 </LinearLayout>
