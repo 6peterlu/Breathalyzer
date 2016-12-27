@@ -4,6 +4,7 @@ package com.example.peter.breathalyzer;
  * Created by jlee29 on 12/20/16.
  */
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import static android.content.ContentValues.TAG;
 
@@ -26,6 +29,7 @@ public class BreathalyzerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         meter = new SoundMeter();
         meter.start();
+
     }
 
     @Override
