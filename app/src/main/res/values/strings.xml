@@ -14,7 +14,11 @@
     <string name="calculator_fragment_instructions">Fill in the following information to calculate and save your BAC</string>
     <string name="home_screen_button_text">Go back to home screen</string>
     <string name="disclaimer_text">This app is created purely for educational and entertainment purposes.
-    The blood alcohol calculator is based on an formula from WikiHow.
-    The number displayed on the screen does not in any way constitute a medical recommendation.</string>
+        The blood alcohol calculator is based on an formula from WikiHow.
+        The number displayed on the screen does not in any way constitute a medical recommendation.
+        Please consult your physician if you feel ill.
+    </string>
     <string name="selected_bac">Selected BAC:</string>
+    <string name="info_header">Welcome to the Breathalyzer!</string>
+    <string name="info_body">We're a new app development team, so please leave us some feedback on Google Play and we will continue to improve this app(:</string>
 </resources>

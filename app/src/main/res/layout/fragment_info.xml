@@ -6,42 +6,54 @@
     android:layout_gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Insert BAC chart here"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:gravity="center"
-        android:id="@+id/textView2" />
 
     <TextView
-        android:text="Insert settings menu here"
+        android:text="@string/info_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="52dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:id="@+id/textView3" />
+        android:id="@+id/info_header"
+        style="@style/header"/>
+    <TextView
+        android:text="@string/info_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:id="@+id/info_body"
+        style="@style/body"/>
 
     <Button
         android:text="@string/calculator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:id="@+id/calc_button"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/mybutton"/>
+        android:background="@drawable/mybutton"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:backgroundTint="@color/bodyColor"
+        />
 
     <Button
         android:text="@string/bac_settings_button"
         android:id="@+id/settings_button"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_width="match_parent"
         android:background="@drawable/mybutton"
-        android:layout_marginTop="10dp"></Button>
+        android:layout_marginTop="10dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:backgroundTint="@color/bodyColor"/>
 
 </LinearLayout>
