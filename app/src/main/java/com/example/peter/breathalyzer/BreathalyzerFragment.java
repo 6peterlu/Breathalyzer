@@ -4,8 +4,7 @@ package com.example.peter.breathalyzer;
  * Created by jlee29 on 12/20/16.
  */
 
-import android.animation.ObjectAnimator;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -13,17 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
-import static android.content.ContentValues.TAG;
 
 public class BreathalyzerFragment extends Fragment {
-    //private Button measureButton;
     SoundMeter meter;
     private Handler handler;
     private Runnable runnable;
+    int progressStatusCounter = 0;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -35,36 +32,35 @@ public class BreathalyzerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_breathalyzer, container, false);
-        /*
-        measureButton = (Button) v.findViewById(R.id.measure_button);
-        measureButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                ResultFragment resultFrag = new ResultFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, resultFrag)
-                        .commit();
-            }
-        });
-        */
         handler = new Handler();
-        final int delay = 500; //milliseconds
+        final int delay = 20; //milliseconds
+        final ProgressBar androidProgressBar = (ProgressBar)v.findViewById(R.id.progress_bar);
+        final TextView analyzing = (TextView)v.findViewById(R.id.analyzing);
         runnable = new Runnable() {
             @Override
             public void run() {
                 //do something
                 double amplitude = meter.getAmplitude();
                 Log.d("cat", "" + amplitude);
-                if (amplitude == 32767.0) {//this is the highest double that can be reached by the microphone lol
-                    meter.stop();
-                    ResultFragment resultFrag = new ResultFragment();
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, resultFrag)
-                            .commit();
-                    meter = null;
+                if (amplitude > 30000.0) {//this is the highest double that can be reached by the microphone lol
+                    progressStatusCounter ++;
+                    analyzing.setText("Analyzing...");
+                    Log.d("cat", ""+progressStatusCounter);
+                    androidProgressBar.setProgress(progressStatusCounter);
+                    if(progressStatusCounter == androidProgressBar.getMax()){//if the progress bar is full
+                        meter.stop();
+                        ResultFragment resultFrag = new ResultFragment();
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, resultFrag)
+                                .commit();
+                        meter = null;
+                    }
                 } else {
-                    handler.postDelayed(this, delay);
+                    progressStatusCounter = 0;
+                    analyzing.setText("");
+                    androidProgressBar.setProgress(progressStatusCounter);
                 }
+                handler.postDelayed(this, delay);
             }
         };
         handler.postDelayed(runnable, delay);
