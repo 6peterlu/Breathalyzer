@@ -3,55 +3,82 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/calculator_fragment_instructions"></TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/weight_number_picker_instructions"/>
+        android:text="@string/weight_number_picker_instructions"
+        style="@style/body"
+        android:layout_marginStart="10sp"
+        android:layout_marginLeft="10sp"/>
 
     <NumberPicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/weight_number_picker"/>
+        android:id="@+id/weight_number_picker"
+        android:layout_marginStart="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginEnd="10sp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/standard_drinks_number_picker_instructions"/>
+        android:text="@string/standard_drinks_number_picker_instructions"
+        style="@style/body"
+        android:layout_marginStart="10sp"
+        android:layout_marginLeft="10sp"/>
 
     <NumberPicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/standard_drinks_number_picker"></NumberPicker>
+        android:id="@+id/standard_drinks_number_picker"
+        android:layout_marginStart="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginEnd="10sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sex_radio_group"
+            android:gravity="center">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/male_radio_button"
+                android:text="@string/male_radio_button_text"
+                android:textColor="@color/bodyColor"
+                android:buttonTint="@color/bodyColor"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/female_radio_button"
+                android:text="@string/female_radio_button_text"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/colorAccent"/>
+        </RadioGroup>
+    </LinearLayout>
 
-    <RadioGroup
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/sex_radio_group">
-        <RadioButton
+        android:gravity="center">
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/male_radio_button"
-            android:text="@string/male_radio_button_text"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/female_radio_button"
-            android:text="@string/female_radio_button_text"/>
-    </RadioGroup>
+            android:id="@+id/calculate_bac_button"
+            android:text="@string/calculate_bac_button_text"
+            android:background="@drawable/mybutton"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:backgroundTint="@color/bodyColor"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/calculate_bac_button"
-        android:text="@string/calculate_bac_button_text"
-        android:background="@drawable/mybutton"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
 
 </LinearLayout>

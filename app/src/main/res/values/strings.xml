@@ -11,7 +11,7 @@
     <string name="calculate_bac_button_text">Calculate your BAC</string>
     <string name="fake_app_button_text">Trick your friends with a fake breathalyzer app</string>
     <string name="settings_fragment_instructions">Fill in the following information to save the BAC to be displayed to your friend in the fake breathalyzer</string>
-    <string name="calculator_fragment_instructions">Fill in the following information to calculate and save your BAC</string>
+    <string name="calculator_fragment_instructions">Fill in the following information to calculate your BAC!</string>
     <string name="home_screen_button_text">Go back to home screen</string>
     <string name="disclaimer_text">This app is created purely for educational and entertainment purposes.
         The blood alcohol calculator is based on an formula from WikiHow.
@@ -21,4 +21,6 @@
     <string name="selected_bac">Selected BAC:</string>
     <string name="info_header">Welcome to the Breathalyzer!</string>
     <string name="info_body">We\'re a new app development team, so please leave us some feedback on Google Play and we will continue to improve this app(:</string>
+    <string name="breathalyzer_body">Did you know certain smartphones can analyze air humidity?</string>
+    <string name="analyzing_text">Analyzing...</string>
 </resources>
