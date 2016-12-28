@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.graphics.Color;
+
 
 /**
  * Created by jlee29 on 12/20/16.
@@ -28,6 +30,8 @@ public class ResultFragment extends Fragment {
         float bac = preferences.getFloat("selected_bac", 0.1f);
         String results = "Your BAC is " + bac;
         bac_results.setText(results);
+        ProgressBar indicator = (ProgressBar)v.findViewById(R.id.indicator);
+        indicator.setProgress((int)(bac*100));
         if (bac < 0.03) {
             bac_results.setTextColor(Color.GREEN);
         } else if (bac < 0.25) {
