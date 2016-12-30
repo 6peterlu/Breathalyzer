@@ -12,6 +12,12 @@
         android:textSize="24sp"
         android:gravity="center"
         android:textAlignment="center" />
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/green_arrow"
+        android:id="@+id/arrow"
+        />
 
     <ImageView
         android:layout_width="match_parent"
@@ -25,7 +31,8 @@
         android:max = "42"
         android:id="@+id/indicator"
         style="?android:attr/progressBarStyleHorizontal"
-        android:indeterminate="false"/>
+        android:indeterminate="false"
+        android:visibility="gone"/>
 
     <TextView
         android:layout_width="match_parent"

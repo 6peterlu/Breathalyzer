@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.graphics.Color;
@@ -50,6 +52,14 @@ public class ResultFragment extends Fragment {
                         .commit();
             }
         });
+        ImageView arrow = (ImageView)v.findViewById(R.id.arrow);
+        if(bac >= 0.03 && bac < 0.25){
+            arrow.setImageResource(R.drawable.yellow_arrow);
+        } else if(bac >= 0.25){
+            arrow.setImageResource(R.drawable.red_arrow);
+        }
+
+        arrow.setX((float)indicator.getProgress()/indicator.getMax() * getContext().getResources().getDisplayMetrics().widthPixels - 13);
         return v;
     }
 }
