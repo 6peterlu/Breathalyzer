@@ -5,7 +5,7 @@
     <string name="calculator">Calculator</string>
     <string name="bac_settings_button">Set the BAC</string>
     <string name="weight_number_picker_instructions">Select your friend\'s weight (in pounds)</string>
-    <string name="standard_drinks_number_picker_instructions">Select the number of standard drinks your friend has consumed</string>
+    <string name="standard_drinks_number_picker_instructions">Select the number of standard drinks your friend has consumed.\n A standard drink is defined as the amount of alcohol contained in a can of beer.</string>
     <string name="male_radio_button_text">Male</string>
     <string name="female_radio_button_text">Female</string>
     <string name="calculate_bac_button_text">Calculate your BAC</string>
@@ -25,4 +25,7 @@
     <string name="analyzing_text">Analyzing...</string>
     <string name="calc_desc">Calculate a realistic blood alcohol content with a person\'s gender, weight, and the number of drinks they\'ve had.</string>
     <string name="set_bac_desc">Set the final BAC for the application to display in the results screen.</string>
+    <string name="low_bac_message">Minimal or no alcohol content detected.</string>
+    <string name="medium_bac_message">You may be experiencing minor memory and motor impairment. Your balance and reaction times are heavily impacted at this level. Take plenty of water and do not drive at this level.</string>
+    <string name="high_bac_message">Your mental and physical functions are or will soon be severely impaired. You are at a high risk of asphyxiation due to vomit or a sudden loss of consciousness. Seek help from others around you and medical attention immediately.</string>
 </resources>
