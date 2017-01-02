@@ -82,11 +82,11 @@ public class CalculatorFragment extends Fragment {
                 float bac = (grams_alcohol / (body_weight_grams * r)) * 100;
 
                 //Save the calculated BAC so this can be shown later to the friend
-                preferences.edit().putFloat("selected_bac", bac).commit();
-                preferences.edit().putInt("selected_weight", weight_num_picker.getValue()).commit();
-                preferences.edit().putInt("selected_drinks", standard_drinks_num_picker.getValue()).commit();
-                preferences.edit().putInt("selected_radio_button", sex_buttons.getCheckedRadioButtonId()).commit();
-                preferences.edit().putBoolean("randomization_required", false).commit();
+                preferences.edit().putFloat("selected_bac", bac).apply();
+                preferences.edit().putInt("selected_weight", weight_num_picker.getValue()).apply();
+                preferences.edit().putInt("selected_drinks", standard_drinks_num_picker.getValue()).apply();
+                preferences.edit().putInt("selected_radio_button", sex_buttons.getCheckedRadioButtonId()).apply();
+                preferences.edit().putBoolean("randomization_required", false).apply();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new ResultFragment())
                         .commit();
