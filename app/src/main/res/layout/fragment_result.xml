@@ -12,20 +12,17 @@
         android:textSize="24sp"
         android:gravity="center"
         android:textAlignment="center" />
+    <ImageView
+        android:layout_height="20dp"
+        android:layout_width="20dp"
+        android:id="@+id/BAC_marker"
+        />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/scaled_color_bar"
         android:id="@+id/imageView" />
-
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max = "42"
-        android:id="@+id/indicator"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:indeterminate="false"/>
 
 
     <TextView
