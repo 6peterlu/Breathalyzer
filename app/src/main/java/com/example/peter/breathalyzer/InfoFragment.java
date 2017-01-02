@@ -1,6 +1,7 @@
 package com.example.peter.breathalyzer;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import static android.content.ContentValues.TAG;
 
@@ -27,6 +29,11 @@ public class InfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_info, container, false);
+
+        TextView header = (TextView) v.findViewById(R.id.info_header);
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Regular.ttf");
+        header.setTypeface(typeface);
+
         calculatorButton = (Button) v.findViewById(R.id.calc_button);
         calculatorButton.setOnClickListener(new View.OnClickListener(){
             @Override

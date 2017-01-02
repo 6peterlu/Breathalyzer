@@ -42,7 +42,7 @@ public class BreathalyzerFragment extends Fragment {
                 //do something
                 double amplitude = meter.getAmplitude();
                 Log.d("cat", "" + amplitude);
-                if (true) {//this is the highest double that can be reached by the microphone lol
+                if (amplitude > 1000) {//this is the highest double that can be reached by the microphone lol
                     progressStatusCounter ++;
                     analyzing.setText(R.string.analyzing_text);
                     Log.d("cat", ""+progressStatusCounter);

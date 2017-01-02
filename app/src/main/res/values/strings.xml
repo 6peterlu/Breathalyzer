@@ -9,7 +9,7 @@
     <string name="male_radio_button_text">Male</string>
     <string name="female_radio_button_text">Female</string>
     <string name="calculate_bac_button_text">Calculate your BAC</string>
-    <string name="fake_app_button_text">Trick your friends with a fake breathalyzer app</string>
+    <string name="fake_app_button_text">Set final BAC to display</string>
     <string name="settings_fragment_instructions">Fill in the following information to save the BAC to be displayed to your friend in the fake breathalyzer</string>
     <string name="calculator_fragment_instructions">Fill in the following information to calculate your BAC!</string>
     <string name="home_screen_button_text">Go back to home screen</string>
@@ -19,8 +19,10 @@
         Please consult your physician if you feel ill.
     </string>
     <string name="selected_bac">Selected BAC:</string>
-    <string name="info_header">Welcome to the Breathalyzer!</string>
-    <string name="info_body">We\'re a new app development team, so please leave us some feedback on Google Play and we will continue to improve this app(:</string>
+    <string name="info_header">Breathalyzer Setup</string>
+    <string name="info_body">This application acts as a dummy breathalyzer. Preprogram the reading of this breathalyzer by selecting either option below.</string>
     <string name="breathalyzer_body">Did you know certain smartphones can analyze air humidity?</string>
     <string name="analyzing_text">Analyzing...</string>
+    <string name="calc_desc">Calculate a realistic blood alcohol content with a person\'s gender, weight, and the number of drinks they\'ve had.</string>
+    <string name="set_bac_desc">Set the final BAC for the application to display in the results screen.</string>
 </resources>

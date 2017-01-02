@@ -28,9 +28,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/fake_app_button_text"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/headerColor"
+        android:backgroundTint="@color/colorPrimary"
         android:background="@drawable/mybutton"
-        android:backgroundTint="@color/bodyColor"
         android:id="@+id/fake_breathalyzer_button"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/alceffects"
+        android:id="@+id/alcEffectChart"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

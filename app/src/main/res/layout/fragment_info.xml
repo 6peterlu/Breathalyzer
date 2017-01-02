@@ -13,10 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:id="@+id/info_header"
         style="@style/header"/>
 
@@ -26,42 +25,94 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:gravity="center"
         android:id="@+id/info_body"
         style="@style/body"/>
 
-    <Button
-        android:text="@string/calculator"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/calc_button"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/mybutton"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="25sp"
-        android:backgroundTint="@color/bodyColor"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center"
-        android:layout_alignParentLeft="true"
-        android:layout_gravity="center"
-        android:layout_height="80dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:text="@string/bac_settings_button"
-        android:id="@+id/settings_button"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/calc"
+            android:id="@+id/calc_image"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/setbac"
+            android:id="@+id/set_bac_image"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@drawable/mybutton"
-        android:layout_marginTop="10dp"
-        android:textSize="25sp"
-        android:textColor="@color/colorPrimaryDark"
-        android:backgroundTint="@color/bodyColor"
-        android:layout_gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_height="80dp" />
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:text="@string/calculator"
+            android:id="@+id/calc_button"
+            android:layout_width="wrap_content"
+            android:background="@drawable/mybutton"
+            android:textSize="20sp"
+            android:textColor="@color/headerColor"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:text="@string/bac_settings_button"
+            android:id="@+id/settings_button"
+            android:layout_width="wrap_content"
+            android:background="@drawable/mybutton"
+            android:textSize="20sp"
+            android:textColor="@color/headerColor"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/calc_description"
+            android:layout_weight="1"
+            android:text="@string/calc_desc"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_bac_description"
+            android:layout_weight="1"
+            android:text="@string/set_bac_desc"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
 
 </LinearLayout>
