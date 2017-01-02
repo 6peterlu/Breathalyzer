@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.graphics.Color;
+import android.util.DisplayMetrics;
+import android.widget.ImageView;
 
 
 /**
@@ -28,24 +30,29 @@ public class ResultFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_result, container, false);
         bac_results = (TextView) v.findViewById(R.id.results);
         bac_desc = (TextView) v.findViewById(R.id.bac_description);
-        int randomNoise = (int)(Math.random() * 899 + 100);
+        float randomNoise = (float)((int)(Math.random() * 899 + 100) * 0.00001);
         SharedPreferences preferences = getActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        float bac = preferences.getFloat("selected_bac", 0.1f);
-        String results = "Your BAC is: " + bac + Integer.toString(randomNoise);
+        float bac = preferences.getFloat("selected_bac", 0.1f) + randomNoise;
+        String results = "Your BAC is: " + bac;
         bac_results.setText(results);
-        ProgressBar indicator = (ProgressBar)v.findViewById(R.id.indicator);
-        indicator.setProgress((int)(bac*100));
+        ImageView arrow = (ImageView)v.findViewById(R.id.BAC_marker);
         if (bac < 0.03) {
+            arrow.setImageResource(R.drawable.green_arrow);
             bac_results.setTextColor(Color.GREEN);
             bac_desc.setText("Minimal or no alcohol content detected.");
         } else if (bac < 0.25) {
+            arrow.setImageResource(R.drawable.yellow_arrow);
             bac_results.setTextColor(Color.YELLOW);
             bac_desc.setText("You may be experiencing minor memory and motor impairment. Your balance and reaction times are heavily impacted at this level. Take plenty of water and do not drive at this level.");
         } else {
+            arrow.setImageResource(R.drawable.red_arrow);
             bac_results.setTextColor(Color.RED);
             bac_desc.setText("Your mental and physical functions are or will soon be severely impaired. You are at a high risk of asphyxiation due to vomit or a sudden loss of consciousness. Seek help from others around you and medical attention immediately.");
         }
         back_button = (Button) v.findViewById(R.id.home_screen_button);
+
+        bac = Math.min(bac, 0.42f);
+        arrow.setX(bac/0.42f * getContext().getResources().getDisplayMetrics().widthPixels - 20);
         back_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
