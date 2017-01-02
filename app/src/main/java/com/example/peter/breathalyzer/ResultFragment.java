@@ -14,6 +14,9 @@ import android.graphics.Color;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 
 /**
  * Created by jlee29 on 12/20/16.
@@ -30,10 +33,17 @@ public class ResultFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_result, container, false);
         bac_results = (TextView) v.findViewById(R.id.results);
         bac_desc = (TextView) v.findViewById(R.id.bac_description);
-        float randomNoise = (float)((int)(Math.random() * 899 + 100) * 0.00001);
+
         SharedPreferences preferences = getActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        float bac = preferences.getFloat("selected_bac", 0.1f) + randomNoise;
-        String results = "Your BAC is: " + bac;
+        float bac = preferences.getFloat("selected_bac", 0.1f);
+        boolean randomizationRequired = preferences.getBoolean("randomization_required", true);
+        if(randomizationRequired){
+            float randomNoise = (float)((int)(Math.random() * 899 + 100) * 0.00001);
+            bac = bac + randomNoise;
+        }
+        DecimalFormat df = new DecimalFormat("#.#####");
+        df.setRoundingMode(RoundingMode.CEILING);
+        String results = "Your BAC is: " + df.format(bac);
         bac_results.setText(results);
         ImageView arrow = (ImageView)v.findViewById(R.id.BAC_marker);
         if (bac < 0.03) {
@@ -52,7 +62,7 @@ public class ResultFragment extends Fragment {
         back_button = (Button) v.findViewById(R.id.home_screen_button);
 
         bac = Math.min(bac, 0.42f);
-        arrow.setX(bac/0.42f * getContext().getResources().getDisplayMetrics().widthPixels - 20);
+        arrow.setX(bac/0.42f * getContext().getResources().getDisplayMetrics().widthPixels - 20); //20 here is a bit arbitrary but thats what works on my screen (Nexus 5X)
         back_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

@@ -62,6 +62,7 @@ public class SettingsFragment extends Fragment {
                 //set the value in shared preferences of the new BAC. and go to the Breathalyzer fragment.
                 float bac = bac_seekbar.getProgress()/100.0f;
                 preferences.edit().putFloat("selected_bac", bac).commit();
+                preferences.edit().putBoolean("randomization_required", true).commit();
 
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new BreathalyzerFragment())

@@ -86,6 +86,7 @@ public class CalculatorFragment extends Fragment {
                 preferences.edit().putInt("selected_weight", weight_num_picker.getValue()).commit();
                 preferences.edit().putInt("selected_drinks", standard_drinks_num_picker.getValue()).commit();
                 preferences.edit().putInt("selected_radio_button", sex_buttons.getCheckedRadioButtonId()).commit();
+                preferences.edit().putBoolean("randomization_required", false).commit();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new ResultFragment())
                         .commit();
