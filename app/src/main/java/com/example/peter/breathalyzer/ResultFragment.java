@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.graphics.Color;
@@ -45,7 +43,7 @@ public class ResultFragment extends Fragment {
             bac_desc.setText("You may be experiencing minor memory and motor impairment. Your balance and reaction times are heavily impacted at this level. Take plenty of water and do not drive at this level.");
         } else {
             bac_results.setTextColor(Color.RED);
-            bac_desc.setText("Your mental and physical functions are or will soon be severely impaired. You are at a high risk of asphyxiation due to vomit or a sudden loss of consciousness. Seek help from others around you and/or medical attention immediately.");
+            bac_desc.setText("Your mental and physical functions are or will soon be severely impaired. You are at a high risk of asphyxiation due to vomit or a sudden loss of consciousness. Seek help from others around you and medical attention immediately.");
         }
         back_button = (Button) v.findViewById(R.id.home_screen_button);
         back_button.setOnClickListener(new View.OnClickListener(){
@@ -57,14 +55,6 @@ public class ResultFragment extends Fragment {
                         .commit();
             }
         });
-        ImageView arrow = (ImageView)v.findViewById(R.id.arrow);
-        if(bac >= 0.03 && bac < 0.25){
-            arrow.setImageResource(R.drawable.yellow_arrow);
-        } else if(bac >= 0.25){
-            arrow.setImageResource(R.drawable.red_arrow);
-        }
-
-        arrow.setX((float)indicator.getProgress()/indicator.getMax() * getContext().getResources().getDisplayMetrics().widthPixels - 13);
         return v;
     }
 }

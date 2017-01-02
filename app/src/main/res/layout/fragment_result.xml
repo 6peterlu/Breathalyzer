@@ -16,7 +16,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/scaledcolorbar"
+        app:srcCompat="@drawable/scaled_color_bar"
         android:id="@+id/imageView" />
 
     <ProgressBar
@@ -27,14 +27,27 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:indeterminate="false"/>
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bac_description"
+        android:text="@string/disclaimer_text"
+        style="@style/body"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_margin="10dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/disclaimer"
         android:text="@string/disclaimer_text"
         style="@style/body"
+        android:textSize="10dp"
         android:paddingLeft="5dp"
-        android:paddingRight="4dp" />
+        android:paddingRight="5dp"
+        android:layout_margin="10dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -42,8 +55,11 @@
         android:text="@string/home_screen_button_text"
         android:id="@+id/home_screen_button"
         android:radius="100dp"
+        android:textColor="@color/headerColor"
+        android:backgroundTint="@color/colorPrimary"
         android:background="@drawable/mybutton"
-        android:layout_marginTop="10dp"
-        style="@style/button"/>
+        android:layout_marginTop="0dp"
+        style="@style/button"
+        android:layout_margin="10dp" />
 
 </LinearLayout>
