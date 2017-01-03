@@ -28,4 +28,5 @@
     <string name="low_bac_message">Minimal or no alcohol content detected.</string>
     <string name="medium_bac_message">You may be experiencing minor memory and motor impairment. Your balance and reaction times are heavily impacted at this level. Take plenty of water and do not drive at this level.</string>
     <string name="high_bac_message">Your mental and physical functions are or will soon be severely impaired. You are at a high risk of asphyxiation due to vomit or a sudden loss of consciousness. Seek help from others around you and medical attention immediately.</string>
+    <string name="symptoms_header">SYMPTOMS AT THIS BAC:</string>
 </resources>
