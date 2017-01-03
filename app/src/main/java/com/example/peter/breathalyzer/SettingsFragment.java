@@ -32,16 +32,21 @@ public class SettingsFragment extends Fragment {
 
         //set the range of the seekbar and the initial value using preferences.
         bac_seekbar.setMax(50);
-        bac_seekbar.setProgress( (int)(preferences.getFloat("selected_bac", 0.3f) * 100) );
+        float bac = preferences.getFloat("selected_bac", 0.3f);
+        bac_seekbar.setProgress( (int)(bac * 100) );
         final TextView seekPreview = (TextView)v.findViewById(R.id.seekbar_preview);
-        seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
+        seekPreview.setText("Selected BAC: " + bac);
+        final TextView symptoms = (TextView) v.findViewById(R.id.symptoms);
+        symptoms.setText(getMessageAtBAC(bac));
 
         //Change the preview of BAC on seekbar change
         bac_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged (SeekBar seekBar, int progress, boolean fromUser){
+                float bac = bac_seekbar.getProgress()/100.0f;
 
-                seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
+                seekPreview.setText("Selected BAC: " + bac);
+                symptoms.setText(getMessageAtBAC(bac));
             }
             //idk if theres anything we should put here
             @Override
@@ -70,5 +75,25 @@ public class SettingsFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    public String getMessageAtBAC(float bac){
+        if (bac_seekbar.getProgress() >= 25) {
+            return "Seek medical attention immediately";
+        } else if (bac_seekbar.getProgress() >= 20) {
+            return "Possible blackout, complete mental confusion, unable to stand";
+        } else if (bac_seekbar.getProgress() >= 16) {
+            return "Nauseous and dysphoric";
+        } else if (bac_seekbar.getProgress() >= 13) {
+            return "Great loss of motor control, blurry vision and loss of balance";
+        } else if (bac_seekbar.getProgress() >= 10) {
+            return "Slurred speech, loss of motor control, delayed reactions";
+        } else if (bac_seekbar.getProgress() >= 6) {
+            return "Slight loss of balance, speech, vision, and memory";
+        } else if (bac_seekbar.getProgress() >= 3) {
+            return "Warmth, euphoria, relaxation";
+        } else {
+            return "No noticeable symptoms";
+        }
     }
 }
