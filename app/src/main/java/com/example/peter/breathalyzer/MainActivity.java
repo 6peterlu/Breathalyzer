@@ -1,6 +1,8 @@
 package com.example.peter.breathalyzer;
 //Violent delights come to violent ends
 
+//RELEASE VERSION
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;

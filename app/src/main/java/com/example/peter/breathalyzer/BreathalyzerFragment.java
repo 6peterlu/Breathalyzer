@@ -8,7 +8,6 @@ package com.example.peter.breathalyzer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,11 +40,11 @@ public class BreathalyzerFragment extends Fragment {
             public void run() {
                 //do something
                 double amplitude = meter.getAmplitude();
-                Log.d("cat", "" + amplitude);
-                if (amplitude > 1000) {//test this
-                    progressStatusCounter++;
+
+                if (amplitude > 1000) {//this is the highest double that can be reached by the microphone lol
+                    progressStatusCounter ++;
+
                     analyzing.setText(R.string.analyzing_text);
-                    Log.d("cat", ""+progressStatusCounter);
                     androidProgressBar.setProgress(progressStatusCounter);
                     if(progressStatusCounter == androidProgressBar.getMax()){//if the progress bar is full
                         meter.stop();
