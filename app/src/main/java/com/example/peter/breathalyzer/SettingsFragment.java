@@ -35,6 +35,8 @@ public class SettingsFragment extends Fragment {
         bac_seekbar.setProgress( (int)(preferences.getFloat("selected_bac", 0.3f) * 100) );
         final TextView seekPreview = (TextView)v.findViewById(R.id.seekbar_preview);
         seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
+        final TextView symptoms = (TextView) v.findViewById(R.id.symptoms);
+        symptoms.setText("Symptoms will appear here.");
 
         //Change the preview of BAC on seekbar change
         bac_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
@@ -42,6 +44,23 @@ public class SettingsFragment extends Fragment {
             public void onProgressChanged (SeekBar seekBar, int progress, boolean fromUser){
 
                 seekPreview.setText("Selected BAC: " + bac_seekbar.getProgress()/100.0f);
+                if (bac_seekbar.getProgress() >= 25) {
+                    symptoms.setText("Seek medical attention immediately");
+                } else if (bac_seekbar.getProgress() >= 20) {
+                    symptoms.setText("Possible blackout, complete mental confusion, unable to stand");
+                } else if (bac_seekbar.getProgress() >= 16) {
+                    symptoms.setText("Nauseous and dysphoric");
+                } else if (bac_seekbar.getProgress() >= 13) {
+                    symptoms.setText("Great loss of motor control, blurry vision and loss of balance");
+                } else if (bac_seekbar.getProgress() >= 10) {
+                    symptoms.setText("Slurred speech, loss of motor control, delayed reactions");
+                } else if (bac_seekbar.getProgress() >= 6) {
+                    symptoms.setText("Slight loss of balance, speech, vision, and memory");
+                } else if (bac_seekbar.getProgress() >= 3) {
+                    symptoms.setText("Warmth, euphoria, relaxation");
+                } else {
+                    symptoms.setText("No noticeable symptoms");
+                }
             }
             //idk if theres anything we should put here
             @Override
