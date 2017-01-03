@@ -1,7 +1,6 @@
 package com.example.peter.breathalyzer;
 
 import android.media.MediaRecorder;
-import android.util.Log;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class SoundMeter {
             try {
                 mRecorder.prepare();
             } catch(IOException ex){
-                Log.d("ayy", "lmao");
+                //Add a toast here maybe?
             }
             mRecorder.start();
         }
